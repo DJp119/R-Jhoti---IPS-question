@@ -1,0 +1,50 @@
+Question 
+
+Vector Dynamic Constructor and passing object
+Develop a class called vector holding size of vector and a pointer to actual vector elements.  Include a dynamic constructor to inialize the elemnts of the vector. Also write a member funciton that performs scaling of a vector for a given scaling factor. 
+
+For example, <2,5,7,9,1> ia a vector with size 5 and actual elements are 2,5,7,9,1;  For a scaling factor 3, the resulting vector is <6,15,21,27,3>
+
+ 
+
+sample input
+
+5  // size of vector passed from main
+
+2 5 7 9 1 // vector elements enterred by the user
+
+3 // scaling factor
+
+output
+
+6 15 21 27 3
+
+CODE
+#include <iostream>
+using namespace std;
+// 1,2,3,4,5,
+class myvector
+{
+       int size;
+       int *p;
+       int sc ;
+       public:
+       myvector()
+       {
+           cin>>size;
+           p=new int[size];
+           for(int i=0;i<size;i++)
+           cin>>*(p+i);  // scanf("%d", p)
+           cin>>sc;
+       }
+       void display()
+       { for(int i=0;i<size;i++)
+           cout<<(*(p+i)*sc)<<" ";
+       }
+};
+int main()
+{
+    myvector M; // dy
+    M.display();
+    return 0;
+}
