@@ -1,0 +1,61 @@
+Payslip for teaching assistant
+Consider an university having Student and Teacher as its major entities. Each student has details such as Id, name, marks in 3 courses and grade; here grade is computed as follows. if avg> 80, grade=A, else B. 
+
+Similalry the teacher also has details like id, name and salary. There are some special kind of students who actually act as university teaching assistants (TA). TA will be having his/her grade based on the courses that he/she undergoes and also salary based on teaching assistantship which is computed as number of hours and rate/hour. 
+
+Use appropriate OOP principes to model this problem and compute the grade and salary of a TA.
+
+Input format
+
+id, name, mark1, mark2, mark3, number_hours, rate/per of a TA (space separated)
+
+Output format
+
+name, grade and salary of the TA
+
+
+// code 
+#include <iostream>
+ 
+using namespace std;
+ 
+class student{
+    protected:
+
+		string id,name,grade;
+		int mark1,mark2,mark3;
+		float average;
+
+};
+
+class TA:public student{
+	public:
+		int ratePerHr,numberOfHrs,salary;
+
+		TA(){
+		    
+			cin>>student::id>>student::name>>student::mark1>>student::mark2>>student::mark3>>numberOfHrs>>ratePerHr;
+			student::average = (student::mark1+student::mark2+student::mark3)/3;
+			salary = numberOfHrs*ratePerHr;
+
+			if(average>80){
+				grade = "A";
+			}
+			else{
+				grade = "B";
+			}
+		}
+		void print(){
+			cout<<name<<" ";
+			cout<<grade<<" ";
+			cout<<salary<<endl;
+		}
+};
+
+int main(){
+
+	TA obj1;
+	obj1.print();
+
+	return 0;
+}
